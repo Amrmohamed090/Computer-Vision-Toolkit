@@ -1,0 +1,47 @@
+{% extends "layout.html" %} {% block content %}
+
+<div class="card ">
+    <a href="{{ url_for('noise') }}" id = "backBtn"></a>
+    
+    <h1 class="text-lg font-bold tracking-wide p-3">Edge detection</h1>
+    <div class="card-body grid grid-cols-4 lg:grid-cols-1 ">
+        
+        <a class="btn-bs-dark mr-10 lg:mb-2" id = "sobel"> Sobel</a>
+   
+        <a class="btn-bs-dark mr-10 lg:mb-2" id = "roberts"> Roberts</a>
+  
+        <a class="btn-bs-dark mr-10 lg:mb-2" id = "prewitt"> Prewitt </a>
+
+        <a class="btn-bs-dark mr-10 lg:mb-2" id = "canny"> Canny </a>
+        
+        <div class="order-teal-300 border w-10 h-10 rounded-full flex justify-center items-center refresh">
+            <i class="fa fa-refresh" aria-hidden="true" id="reset_current_img"></i>
+        </div>
+    </div>
+    
+    
+</div>
+<div class="parameters">
+    <!-- <label for="size" class="labelFiled">size:</label>
+    <input type="number" name="size" id="sizeEd" class="inputFiled" value="3"> -->
+    <label for="sigma" class="labelFiled">sigma:</label>
+    <input type="number" name="sigma" id="sigmaEd" class="inputFiled" value="0.02" step="0.01">
+    <label for="low_threshold" class="labelFiled">low threshold:</label>
+    <input type="number" name="low_threshold" id="low_threshold" class="inputFiled" value="0.1" min="0.001" max="0.98" step="0.1">    
+    <label for="high_threshold" class="labelFiled">high threshold:</label>
+    <input type="number" name="high_threshold" id="high_threshold" class="inputFiled" value="0.2" min="0.001" max="0.99" step="0.1">     
+  </div>
+
+
+<div class="card-body grid grid-cols-2" style="margin-top: 1%;">
+    <div id="img_org_div" >
+
+    </div>
+    <div id="img_res_div">
+
+    </div>
+</div>
+<script src="../static/js/edgedetection.js"></script>
+
+
+{% endblock %}

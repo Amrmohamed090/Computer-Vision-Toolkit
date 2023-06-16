@@ -1,0 +1,51 @@
+{% extends "layout.html" %} {% block content %}
+
+<div class="card ">
+    
+    <h1 class="text-lg font-bold tracking-wide p-3">Image Matching</h1>
+    <div class="card-body grid grid-cols-4 lg:grid-cols-1 ">
+
+        
+        <a class="btn-bs-dark mr-10 lg:mb-2" id = "SDD">SSD matching</a>
+        <a class="btn-bs-dark mr-10 lg:mb-2" id = "NCC">NCC matching</a>
+        
+        <div class="order-teal-300 border w-10 h-10 rounded-full flex justify-center items-center refresh">
+            <i class="fa fa-refresh" aria-hidden="true" id="reset_current_img"></i>
+        </div>
+    </div>
+    
+    
+</div>
+    <div id="time" style="font-size:170%"></div>
+    <div class="card-body grid grid-cols-2 lg:grid-cols-2 " style="margin-top: 2%;">
+      
+        <div class="p-4" id = "first_image">
+        
+            <p class="uppercase text-xs text-gray-600 mb-2 tracking-wider ">Upload first Image</p>
+            <div class="Neon Neon-theme-dragdropbox ">
+                <input id="image_input1" type="file">
+                <output></output>
+                <div class="Neon-input-dragDrop"><div class="Neon-input-inner"><div class="Neon-input-icon"><i class="fa fa-file-image-o"></i></div><div class="Neon-input-text"><h3>Drag&amp;Drop files here</h3> <span style="display:inline-block; margin: 15px 0">or</span></div><a class="Neon-input-choose-btn blue">Browse Files</a></div></div>
+            </div>
+        </div>
+
+        <div class="p-4" id = "second_image">
+            <p class="uppercase text-xs text-gray-600 mb-2 tracking-wider">Upload second Image</p>
+            <div class="Neon Neon-theme-dragdropbox">
+                <input id="image_input2" type="file">
+                <output></output>
+            <div class="Neon-input-dragDrop"><div class="Neon-input-inner"><div class="Neon-input-icon"><i class="fa fa-file-image-o"></i></div><div class="Neon-input-text"><h3>Drag&amp;Drop files here</h3> <span style="display:inline-block; margin: 15px 0">or</span></div><a class="Neon-input-choose-btn blue">Browse Files</a></div></div>
+            </div> 
+        </div>
+        
+        <div class="p-4" id="img_res_div" ></div>
+        
+    </div>
+    <!-- end body -->
+</div>
+<!-- end wrapper -->
+<script src="../static/js/feature_matching.js"></script>
+
+
+{% endblock %}
+

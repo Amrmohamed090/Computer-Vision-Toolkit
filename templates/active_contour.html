@@ -1,0 +1,36 @@
+{% extends "layout.html" %} {% block content %}
+ <!-- Normalize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <!-- Cropper CSS -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.css'>
+    <!-- Cropper JS -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/cropperjs/0.8.1/cropper.min.js'></script>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<div class="card ">
+    <h1 class="text-lg font-bold tracking-wide p-3">Active (Snake) Contour</h1>
+    <div class="card-body grid grid-cols-4 lg:grid-cols-1 ">
+        
+        <a class="btn-bs-dark mr-10 lg:mb-2" id = "active_contour"> Active (Snake) Contour</a>
+   
+        <a class="btn-bs-dark mr-10 lg:mb-2" id = "area"> Active (Snake) Contour/Area</a>
+        <div class="order-teal-300 border w-10 h-10 rounded-full flex justify-center items-center refresh">
+            <i class="fa fa-refresh" aria-hidden="true" id="reset_current_img"></i>
+        </div>
+    </div>
+    
+    
+</div>
+
+<div >
+    <div class="card-body grid grid-cols-2" style="margin-top: 1%;">
+        <div id="img_org_div" style="width:80%" ></div>
+        <div id="img_res_div" style="width:80%;"></div>
+    </div>
+</div>
+
+<script src="../static/js/active.js"></script>
+
+
+{% endblock %}

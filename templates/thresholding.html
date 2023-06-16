@@ -1,0 +1,39 @@
+{% extends "layout.html" %} {% block content %}
+
+<div class="card ">
+    
+    <h1 class="text-lg font-bold tracking-wide p-3">thresholding</h1>
+    <div class="card-body grid grid-cols-4 lg:grid-cols-1 ">
+
+        <a class="btn-bs-dark mr-10 lg:mb-2" id = "optimal"> optimal</a>
+        <a class="btn-bs-dark mr-10 lg:mb-2" id = "Otsu"> Otsu</a>
+        <a class="btn-bs-dark mr-10 lg:mb-2" id = "spectral_Otsu"> spectral_Otsu</a>
+        <a class="btn-bs-dark mr-10 lg:mb-2" id = "spectral_kmean"> spectral prepare for kmean</a>
+
+        
+        <div class="order-teal-300 border w-10 h-10 rounded-full flex justify-center items-center refresh">
+            <i class="fa fa-refresh" aria-hidden="true" id="reset_current_img"></i>
+        </div>
+    </div>
+    
+    
+</div>
+<div class="parameters">
+    <label for="mode" class="labelFiled">Thresholding mode:</label>
+    <select name="mode" id="mode">
+        <option value="global">global</option>
+        <option value="local">local</option>
+      </select>
+    <label for="number_slices" class="labelFiled">Number of slices:</label>
+    <input type="number" name="number_slices" id="number_slices" class="inputFiled" value="4">
+  </div>
+
+
+  <div class="card-body grid grid-cols-2" style="margin-top: 1%;">
+    <div id="img_org_div" ></div>
+    <div id="img_res_div"></div>
+</div>
+<script src="../static/js/thresholding.js"></script>
+
+
+{% endblock %}

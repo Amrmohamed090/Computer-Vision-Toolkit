@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <!-- Cropper CSS -->
+    <!-- <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.css'> -->
+    <!-- Cropper JS -->
+    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/cropperjs/0.8.1/cropper.min.js'></script> -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
+    <link rel="icon" href="../static/img/image-processing (1).png" >  
+    <link rel="stylesheet" href="https://kit.fontawesome.com/8cc4d09c1d.css" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/8cc4d09c1d.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.12.1/css/pro.min.css">
+    <title>Image preprocessing</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+
+
+
+</head>
+
+<body>
+    <!-- start navbar -->
+<div id="current_img_source" style="display: none;">{{img}}</div>
+<div class="md:fixed md:w-full md:top-0 md:z-20 flex flex-row flex-wrap items-center bg-white p-6 border-b border-gray-300" style="margin-left: -23px;">
+  <div class="flex-none w-56 flex flex-row items-center">
+    <img src="{{ url_for('static', filename='img/image-processing (1).png') }}" class="w-12 flex-none" style="background: none;" id="logo">
+    <a><strong class="capitalize ml-1 flex-1">Image Preprocessing</strong></a>
+
+    <button id="sliderBtn" class="flex-none text-right text-gray-900 hidden md:block">
+      <i class="fad fa-list-ul"></i>
+    </button>
+  </div>
+    
+    <!-- logo -->
+    <!-- end logo -->   
+    
+   
+
+  </div>
+<!-- end navbar -->
+<div class="h-screen flex flex-row flex-wrap">
+ <!-- start sidebar -->
+ <div id="sideBar" class="relative flex flex-col flex-wrap bg-white border-r border-gray-300 p-6 flex-none w-64 md:-ml-64 md:fixed md:top-0 md:z-30 md:h-screen md:shadow-xl animated faster">
+    
+
+    <!-- sidebar content -->
+    <div class="flex flex-col">
+
+      <!-- sidebar toggle -->
+      <div class="text-right hidden md:block mb-4">
+        <button id="sideBarHideBtn">
+          <i class="fad fa-times-circle"></i>
+        </button>
+      </div>
+      <!-- end sidebar toggle -->
+
+      
+
+
+      <p class="uppercase text-xs text-gray-600 mb-4 mt-4 tracking-wider">Tools</p>
+
+     <!-- link -->
+     <a href="{{ url_for('noise') }}" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
+      <!-- <i class="fad fa-envelope-open-text text-xs mr-2"></i> -->
+      Add noise and filter
+    </a>
+    <!-- end link -->
+
+
+    <!-- link -->
+    <a href="{{ url_for('equalize') }}" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
+      <!-- <i class="fad fa-calendar-edit text-xs mr-2"></i> -->
+      Frequency domain
+    </a>
+    <!-- end link -->
+
+    <!-- link -->
+    <a href="{{ url_for('hybrid') }}" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
+      <!-- <i class="fad fa-cricket text-xs mr-2"></i> -->
+      Hybrid images
+    </a>
+    <!-- end link -->
+    <!-- link -->
+    <a href="{{ url_for('hough') }}" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
+      <!-- <i class="fad fa-cricket text-xs mr-2"></i> -->
+      Hough images
+    </a>
+    <!-- end link -->
+     <!-- link -->
+     <a href="{{ url_for('active') }}" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
+      <!-- <i class="fad fa-cricket text-xs mr-2"></i> -->
+      Active contour
+    </a>
+    <!-- end link -->
+    <!-- link -->
+     <a href="{{ url_for('feature_extraction') }}" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
+      <!-- <i class="fad fa-cricket text-xs mr-2"></i> -->
+      Corner Detection
+    </a>
+    <!-- end link -->
+    <!-- link -->
+    <a href="{{ url_for('feature_matching') }}" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
+      <!-- <i class="fad fa-cricket text-xs mr-2"></i> -->
+      Feature Matching
+    </a>
+    <!-- end link -->
+    
+      
+    </div>
+    <!-- end sidebar content -->
+    <div class="parameters">
+      <label for="D0Low" class="labelFiled">D0 for Low pass:</label>
+      <input type="number" name="D0Low" id="D0Low" class="inputFiled" value="20">    
+      <label for="D0High" class="labelFiled">D0 High pass:</label>
+      <input type="number" name="D0High" id="D0High" class="inputFiled" value="10">    
+    </div>
+
+  </div>
+  <!-- end sidbar -->
+      <!-- body -->
+      
+      <div class="order-teal-300 border w-10 h-10 rounded-full flex justify-center items-center refresh" >
+        
+        <i class="fa fa-refresh " aria-hidden="true" id="reset_current_img" ></i>
+        </div>
+        
+    <div class="card-body grid grid-cols-2 lg:grid-cols-2 " style="margin-top: 2%;">
+      
+        <div class="p-4" id = "first_image">
+        
+            <p class="uppercase text-xs text-gray-600 mb-2 tracking-wider ">Upload first Image</p>
+            <div class="Neon Neon-theme-dragdropbox ">
+                <input id="image_input1" type="file">
+                <output></output>
+                <div class="Neon-input-dragDrop"><div class="Neon-input-inner"><div class="Neon-input-icon"><i class="fa fa-file-image-o"></i></div><div class="Neon-input-text"><h3>Drag&amp;Drop files here</h3> <span style="display:inline-block; margin: 15px 0">or</span></div><a class="Neon-input-choose-btn blue">Browse Files</a></div></div>
+            </div>
+        </div>
+
+        <div class="p-4" id = "second_image">
+            <p class="uppercase text-xs text-gray-600 mb-2 tracking-wider">Upload second Image</p>
+            <div class="Neon Neon-theme-dragdropbox">
+                <input id="image_input2" type="file">
+                <output></output>
+            <div class="Neon-input-dragDrop"><div class="Neon-input-inner"><div class="Neon-input-icon"><i class="fa fa-file-image-o"></i></div><div class="Neon-input-text"><h3>Drag&amp;Drop files here</h3> <span style="display:inline-block; margin: 15px 0">or</span></div><a class="Neon-input-choose-btn blue">Browse Files</a></div></div>
+            </div> 
+        </div>
+        
+        <div class="p-4" id="result1" ></div>
+        <div class="p-4" id="result2"></div>
+    </div>
+    <!-- end body -->
+</div>
+<!-- end wrapper -->
+
+    
+</body>
+<script src="../static/js/hybrid.js"></script>
+
+
+
+</html>

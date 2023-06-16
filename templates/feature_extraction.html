@@ -1,0 +1,36 @@
+{% extends "layout.html" %} {% block content %}
+
+<div class="card ">
+    
+    <h1 class="text-lg font-bold tracking-wide p-3">Feature Detection</h1>
+    <div class="card-body grid grid-cols-4 lg:grid-cols-1 ">
+
+        <a class="btn-bs-dark mr-10 lg:mb-2" id = "harris"> Harris</a>
+        <a class="btn-bs-dark mr-10 lg:mb-2" id = "lambda"> -lambda</a>
+        <a class="btn-bs-dark mr-10 lg:mb-2" id = "SIFT"> SIFT</a>
+
+        
+        <div class="order-teal-300 border w-10 h-10 rounded-full flex justify-center items-center refresh">
+            <i class="fa fa-refresh" aria-hidden="true" id="reset_current_img"></i>
+        </div>
+    </div>
+    
+    <div class="parameters" style="margin:2%;">
+        <label for="Harris_sensitivity" class="labelFiled">Harris sensitivity k :</label>
+        <input type="number" name="Harris_sensitivity" id="Harris_sensitivity" class="inputFiled" value="0.04">    
+        <label for="Harris_Threshold" class="labelFiled">Harris Threshold :</label>
+        <input type="number" name="Harris_Threshold" id="Harris_Threshold" class="inputFiled" value="0.2">    
+        <label for="Lambda_Threshold" class="labelFiled">Lambda Threshold :</label>
+        <input type="number" name="Lambda_Threshold" id="Lambda_Threshold" class="inputFiled" value="0.3"> 
+      </div>
+</div>
+<div id="time" style="font-size:170%"></div>
+
+  <div class="card-body grid grid-cols-2" style="margin-top: 1%;">
+    <div id="img_org_div" ></div>
+    <div id="img_res_div"></div>
+</div>
+<script src="../static/js/feature_extraction.js"></script>
+
+
+{% endblock %}

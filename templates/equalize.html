@@ -1,0 +1,47 @@
+{% extends "layout.html" %} {% block content %}
+<div class="card ">
+    <h1 class="text-lg font-bold tracking-wide p-3">Add Noise</h1>
+    <div class="card-body grid grid-cols-3 lg:grid-cols-1 ">
+        
+      
+      <!-- <a class="btn-bs-secondary mr-10  lg:mb-2" id = "equalize"> Equalize</a> -->
+      <a class="btn-bs-dark mr-10 lg:mb-2" id = "equalize"> Equalize</a>
+      
+      <!-- <a class="btn-gray mr-10 lg:mb-2" id = "normalize">Normalize</a> -->
+      <a class="btn-bs-dark mr-10 lg:mb-2" id = "normalize">Normalize</a>
+      
+      <a class="btn-bs-dark mr-10 lg:mb-2" id = "histogram"> Histogram</a>
+      <!-- <a class="btn-bs-dark mr-10 lg:mb-2" id = "local_thresholding"> Local threshold</a> -->
+      <a class="btn-gray mr-10 lg:mb-2" id = "local_thresholding"> Local threshold</a>
+   
+      <!-- <a class="btn-bs-secondary mr-10  lg:mb-2" id = "global_thresholding"> Global threshold</a> -->
+      <a class="btn-gray mr-10 lg:mb-2" id = "global_thresholding"> Global threshold</a>
+      
+      <a class="btn-gray mr-10 lg:mb-2" id = "rgb_histogram">RGB histogram</a>
+
+        <div class="order-teal-300 border w-10 h-10 rounded-full flex justify-center items-center">
+            <i class="fa fa-refresh" aria-hidden="true" id="reset_current_img"></i>
+        </div>
+        
+
+    </div>
+</div>
+  <div class="parameters">
+    <label for="size" class="labelFiled">size:</label>
+    <input type="number" name="size" id="sizethr" class="inputFiled" value="20">    
+    <label for="thr" class="labelFiled">threshold:</label>
+    <input type="number" name="thr" id="thr" class="inputFiled" value="125">  
+  </div>
+<div class="card-body grid grid-cols-2" style="margin-top: 1%;">
+    <div id="img_org_div" >
+
+    </div>
+    <div id="img_res_div">
+
+    </div>
+</div>
+
+
+<script src="../static/js/equalize.js"></script>
+
+{% endblock %}

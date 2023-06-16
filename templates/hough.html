@@ -1,0 +1,36 @@
+{% extends "layout.html" %} {% block content %}
+
+<div class="card ">
+    
+    <h1 class="text-lg font-bold tracking-wide p-3">Hough transform</h1>
+    <div class="card-body grid grid-cols-4 lg:grid-cols-1 ">
+
+        <a class="btn-bs-dark mr-10 lg:mb-2" id = "houghLine"> line detection</a>
+        <a class="btn-bs-dark mr-10 lg:mb-2" id = "houghCircle"> Circle detection</a>
+
+        
+        <div class="order-teal-300 border w-10 h-10 rounded-full flex justify-center items-center refresh">
+            <i class="fa fa-refresh" aria-hidden="true" id="reset_current_img"></i>
+        </div>
+    </div>
+    
+    
+</div>
+<div class="parameters">
+    <label for="threshold" class="labelFiled">threshold:</label>
+    <input type="number" name="threshold" id="thresholdHough" class="inputFiled" value="100">
+    <label for="rstep" class="labelFiled">Rhos step:</label>
+    <input type="number" name="rstep" id="rstep" class="inputFiled" value="1" >    
+    <label for="thetastep" class="labelFiled">thetas step:</label>
+    <input type="number" name="thetastep" id="thetastep" class="inputFiled" value="1" >     
+  </div>
+
+
+  <div class="card-body grid grid-cols-2" style="margin-top: 1%;">
+    <div id="img_org_div" ></div>
+    <div id="img_res_div"></div>
+</div>
+<script src="../static/js/hough.js"></script>
+
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "layout.html" %} {% block content %}
+
+<div class="card ">
+    <h1 class="text-lg font-bold tracking-wide p-3">Add Noise& Filters</h1>
+    <div class="card-body grid grid-cols-3 lg:grid-cols-1 ">
+        
+        <a class="btn-bs-dark mr-10 lg:mb-2" id = "uniform_noise"> Uniform</a>
+   
+        <!-- <a class="btn-bs-secondary mr-10  lg:mb-2" id = "gaussian_noise"> Gaussian</a> -->
+        <a class="btn-bs-dark mr-10 lg:mb-2" id = "gaussian_noise"> Gaussian</a>
+  
+        <!-- <a class="btn-gray mr-10 lg:mb-2" id = "salt_noise">Salt And Pepper</a> -->
+        <a class="btn-bs-dark mr-10 lg:mb-2" id = "salt_noise">Salt And Pepper</a>
+
+         <!-- <a class="btn-bs-dark mr-10 lg:mb-2" id = "average_filter"> Average filter</a> -->
+         <a class="btn-bs-secondary mr-10  lg:mb-2" id = "average_filter"> Average filter</a>
+   
+        <a class="btn-bs-secondary mr-10  lg:mb-2" id = "median_filter"> Median filter</a>
+  
+        <!-- <a class="btn-gray mr-10 lg:mb-2" id = "gaussian_filter">Gaussian filter</a> -->
+        <a class="btn-bs-secondary mr-10  lg:mb-2" id = "gaussian_filter">Gaussian filter</a>
+
+        <a class="btn-bs-dark mr-10 lg:mb-2" id = "low_pass">Frequency Domain - low pass</a>
+        <!-- <a class="btn-bs-secondary mr-10  lg:mb-2" id = "high_pass">Frequency Domain - high pass</a> -->
+        <a class="btn-bs-dark mr-10 lg:mb-2" id = "high_pass">Frequency Domain - high pass</a>
+
+      <!-- link -->
+      <a href="{{ url_for('edgedetection') }}" class="btn-bs-dark mr-10 lg:mb-2">
+        <!-- <i class="fad fa-comments text-xs mr-2"></i> -->
+        Edge detection
+      </a>
+      <!-- end link -->
+
+        <div class="order-teal-300 border w-10 h-10 rounded-full flex justify-center items-center refresh">
+            <i class="fa fa-refresh" aria-hidden="true" id="reset_current_img"></i>
+        </div>
+        
+    </div>
+  </div>
+  <div class="parameters">
+    <label for="size" class="labelFiled">size:</label>
+    <input type="number" name="size" id="size" class="inputFiled" value="3">    
+    <label for="sigma" class="labelFiled">sigma:</label>
+    <input type="number" name="sigma" id="sigma" class="inputFiled" value="1">    
+    <label for="D0" class="labelFiled">freq D0:</label>
+    <input type="number" name="D0" id="D0" class="inputFiled" value="50"> 
+  </div>
+
+<div class="card-body grid grid-cols-2" style="margin-top: 1%;">
+    <div id="img_org_div" ></div>
+    <div id="img_res_div"></div>
+</div>
+
+<script src="../static/js/noise.js"></script>
+{% endblock %}

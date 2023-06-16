@@ -1,0 +1,90 @@
+
+#image_input1{
+    z-index: 999;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute; 
+    right: 0px; 
+    left: 0px; 
+    margin-right: auto; 
+    margin-left: auto;
+}
+#image_input{
+    z-index: 999;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute; 
+    right: 0px; 
+    left: 0px; 
+    margin-right: auto; 
+    margin-left: auto;
+}
+#image_input2{
+    z-index: 999;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute; 
+    right: 0px; 
+    left: 0px; 
+    margin-right: auto; 
+    margin-left: auto;
+}
+#sideBar{
+    height: 90%;
+    overflow-y: auto;
+}
+#logo{
+    margin:0 ;
+    padding-left: 0;
+}
+.inputFiled{
+    display: inline-block;
+    width: 60px;
+    border: solid 0.5px #e2e8f0 ;
+    border-radius: 5px;
+}
+#backBtn{
+    background-image: url("../img/backicon-removebg-preview.png");
+    background-position: center;
+    background-size: cover;
+    height: 40px;
+    width: 40px;
+    /* border-radius: 20px; */
+} 
+.refresh:hover{
+    cursor: pointer;
+    box-shadow: 1px 1px 1px 1px;
+
+}
+.refresh::after{
+    box-shadow: 1px 1px 1px 1px inset;
+}
+.cropper-view-box {
+	box-shadow: 0 0 0 1px #39f;
+	border-radius: 50%;
+	outline: 0;
+}
+.cropper-face {
+	background-color:inherit !important;
+}
+.cropper-view-box {
+	outline:inherit !important;
+}
+
+#mode{
+    display: inline-block;
+    width: 75px;
+    border: solid 0.5px #e2e8f0 ;
+    border-radius: 5px;
+}
+.card .card-body {
+    padding: 0.5rem;
+}
+.p-8{
+    padding: 1rem;
+    width: 80%;
+    height: 69%;
+}

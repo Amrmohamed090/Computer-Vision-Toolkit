@@ -1,0 +1,93 @@
+{% extends "layout.html" %} {% block content %}
+
+<div class="card parameters">
+    
+    <h1 class="text-lg font-bold tracking-wide p-3">Segmentation</h1>
+    <div class="card-body grid grid-cols-4 lg:grid-cols-1 ">
+
+    <div class="card">
+        <div class="card-body grid grid-cols-1">
+            <div class="card-body grid grid-cols-1 " style = "display: inline-block;">
+                <a class="btn-bs-dark mr-10 lg:mb-2" id = "kmean"> K-mean</a>
+            </div>
+            <div class="card-body grid grid-cols-2 " style = "display: inline-block;">
+                <label for="k" class="labelFiled">K: </label>
+                <input type="number" name="k" id="k" class="inputFiled" value="7"  style="margin-left:10%">
+            </div>
+            <div class="card-body grid grid-cols-1 " style = "display: inline-block;">
+                <label for="max_iteration" class="labelFiled">max iteration:</label>
+                <input type="number" name="max_iteration" id="max_iteration" class="inputFiled" value="50">
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body grid grid-cols-1">
+            <div class="card-body grid grid-cols-1 " style = "display: inline-block;">
+                <a class="btn-bs-dark mr-10 lg:mb-2" id = "region-growing"> Region Growing</a>
+            </div>  
+            <div class="card-body grid grid-cols-1 " style = "display: inline-block;">
+                <label for="seed-x" class="labelFiled">seed-x :</label>
+
+                <input type="number" name="seed-x" id="seed-x" class="inputFiled" value="72">
+
+                <label for="seed-y" class="labelFiled">seed-y :</label>
+                <input type="number" name="seed-y" id="seed-y" class="inputFiled" value="90">
+            </div>
+            <div class="card-body grid grid-cols-1 " style = "display: inline-block;">
+                <label for="thresh_region" class="labelFiled">Threshold</label>
+                <input type="number" name="thresh_region" id="thresh_region" class="inputFiled" value="1">
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body grid grid-cols-1">
+            <div class="card-body grid grid-cols-1 " style = "display: inline-block;">
+                <a class="btn-bs-dark mr-10 lg:mb-2" id = "agglomerative"> Agglomerative</a>
+            </div>
+           
+            <div class="card-body grid grid-cols-1 " style = "display: inline-block;">
+                <label for="number_of_clusters" class="labelFiled">number of clusters :</label>
+                <input type="number" name="number_of_clusters" id="number_of_clusters" class="inputFiled" value="2">
+            </div>
+            
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body grid grid-cols-1">
+            <div class="card-body grid grid-cols-1 " style = "display: inline-block;">
+                <a class="btn-bs-dark mr-10 lg:mb-2" id = "mean-shift"> Mean Shift</a>
+            </div>
+            <div class="card-body grid grid-cols-1 " style = "display: inline-block;">
+                <label for="raduis" class="labelFiled">raduis :</label>
+                <input type="number" name="raduis" id="raduis" class="inputFiled" value="80">
+            </div>
+            <div class="card-body grid grid-cols-1 " style = "display: inline-block;">
+                <label for="threshold_mean" class="labelFiled">threshold :</label>
+                <input type="number" name="threshold_mean" id="threshold_mean" class="inputFiled" value="10">%
+            </div>
+        </div>
+    </div>
+
+        
+        
+    </div>
+    
+    
+</div>
+<div class="parameters">
+    <label for="color_space" class="labelFiled">color space:</label>
+    <select name="color_space" id="color_space">
+        <option value="RGB">RGB</option>
+        <option value="LUV">LUV</option>
+      </select>
+<div class="card">
+  <div class="card-body grid grid-cols-2" style="margin-top: 1%;">
+    <div id="img_org_div" ></div>
+    <div id="img_res_div"></div>
+    </div>
+</div>
+<script src="../static/js/segmentation.js"></script>
+
+
+{% endblock %}
