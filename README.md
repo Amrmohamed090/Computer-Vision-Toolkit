@@ -13,11 +13,7 @@ pip install flask
 pip install flask_cors 
 pip install flask_session 
 ```
-## Run-App
-**_Run the application_**
-```sh
-py a01-team13/app.py
-```
+
 ## Description
 this is a website to help in preprocessing techniques and the perpetuation of the image for computer vision applications, which consist of:
 
