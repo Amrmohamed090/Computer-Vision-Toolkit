@@ -4,14 +4,7 @@
 Use the package manager [pip] to install:
 
 ```bash
-pip install matplotlib.pyplot 
-pip install numpy 
-pip install base64
-pip install PIL import Image
-pip install io import StringIO 
-pip install flask 
-pip install flask_cors 
-pip install flask_session 
+pip install -r requirements.txt
 ```
 
 ## Description
