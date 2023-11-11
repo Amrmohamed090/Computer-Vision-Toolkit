@@ -28,5 +28,6 @@ this is a website to help in preprocessing techniques and the perpetuation of th
   
   ## Preview
 ![](https://github.com/Amrmohamed090/Computer-Vision-Toolkit/blob/main/screenshots/sift.png)
+![](https://github.com/Amrmohamed090/Computer-Vision-Toolkit/blob/main/screenshots/subtab%20edge.png)
 ![](https://github.com/Amrmohamed090/Computer-Vision-Toolkit/blob/main/screenshots/harris.png)
 
